@@ -41,5 +41,6 @@ def DatasetsPreprocessor():
                                           .replace("   ", " ") \
                                           .replace(" \n", "") \
                                           .replace("\n", ""))
+
     return OkComments_PreProcessed, NotOkComments_PreProcessed
 
