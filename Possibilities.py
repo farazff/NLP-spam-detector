@@ -1,5 +1,7 @@
 def P_unigram(word, M, dictData):
-    return dictData[word] / M
+    if word in dictData:
+        return dictData[word] / M
+    return 0.01
 
 
 def P_bigram(secondWord, firstWord, dictData2D, dictData):
@@ -12,6 +14,8 @@ def P_bigram(secondWord, firstWord, dictData2D, dictData):
         if secondWord in dictData2D[firstWord]:
             countPair = dictData2D[firstWord][secondWord]
 
+    if countPair == 0:
+        return 0
     return countPair / countFirstWord
 
 

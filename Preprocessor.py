@@ -12,6 +12,7 @@ def DatasetsPreprocessor():
                                        .replace("\"", "") \
                                        .replace("/", "") \
                                        .replace("?", "") \
+                                       .replace("ing", "") \
                                        .replace("[", "") \
                                        .replace("]", "") \
                                        .replace("(", "") \
@@ -33,6 +34,7 @@ def DatasetsPreprocessor():
                                           .replace("?", "") \
                                           .replace("[", "") \
                                           .replace("]", "") \
+                                          .replace("ing", "") \
                                           .replace("(", "") \
                                           .replace(")", "") \
                                           .replace(":", "") \
