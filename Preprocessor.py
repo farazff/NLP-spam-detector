@@ -1,3 +1,6 @@
+from Learn import countEveryWord, countPairs
+
+
 def DatasetsPreprocessor():
     OkComments_Dataset = "Datasets/rt-polarity.pos"
     NotOkComments_Dataset = "Datasets/rt-polarity.neg"
@@ -44,3 +47,5 @@ def DatasetsPreprocessor():
 
     return OkComments_PreProcessed, NotOkComments_PreProcessed
 
+
+print(countPairs(DatasetsPreprocessor()[0]))
