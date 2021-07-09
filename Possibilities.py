@@ -1,3 +1,8 @@
+lambda1 = 0.10
+lambda2 = 0.15
+lambda3 = 0.75
+epsilon = 0.1
+
 def P_unigram(word, M, dictData):
     if word in dictData:
         return dictData[word] / M
@@ -20,10 +25,10 @@ def P_bigram(secondWord, firstWord, dictData2D, dictData):
 
 
 def P_bigramNormal(secondWord, firstWord, dictData2D, dictData, M):
-    lambda1 = 0.10
-    lambda2 = 0.15
-    lambda3 = 0.75
-    epsilon = 0.1
+    # lambda1 = 0.10
+    # lambda2 = 0.15
+    # lambda3 = 0.75
+    # epsilon = 0.1
     return lambda3 * P_bigram(secondWord, firstWord, dictData2D, dictData) + \
            lambda2 * P_unigram(secondWord, M, dictData) + lambda1 * epsilon
 

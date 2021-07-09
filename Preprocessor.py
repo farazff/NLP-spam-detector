@@ -1,3 +1,4 @@
+import random
 def DatasetsPreprocessor():
     OkComments_Dataset = "Datasets/rt-polarity.pos"
     NotOkComments_Dataset = "Datasets/rt-polarity.neg"
@@ -21,7 +22,6 @@ def DatasetsPreprocessor():
                                        .replace(";", "") \
                                        .replace("  ", " ") \
                                        .replace("   ", " ") \
-                                       .replace(" \n", "") \
                                        .replace("\n", ""))
     file = open(NotOkComments_Dataset, 'r')
     for line in file.readlines():
@@ -43,5 +43,10 @@ def DatasetsPreprocessor():
                                           .replace("   ", " ") \
                                           .replace(" \n", "") \
                                           .replace("\n", ""))
+    random.shuffle(OkComments_PreProcessed)
+    random.shuffle(NotOkComments_PreProcessed)
 
-    return OkComments_PreProcessed, NotOkComments_PreProcessed
+    return OkComments_PreProcessed[int(0.1*len(OkComments_PreProcessed)):],\
+           NotOkComments_PreProcessed[int(0.1*len(NotOkComments_PreProcessed)):], \
+           OkComments_PreProcessed[0:int(0.1 * len(OkComments_PreProcessed))], \
+           NotOkComments_PreProcessed[0:int(0.1 * len(NotOkComments_PreProcessed))]
