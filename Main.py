@@ -48,27 +48,26 @@ def tester(goodSentencesTst, badSentencesTst):
 
     return precision
 
-def bestParamatersSearcher(goodSentencesTst, badSentencesTst):
-    bestPrecision=0
-    bestParameters=None
+
+def bestParametersSearcher(goodSentencesTst, badSentencesTst):
+    bestPrecision = 0
+    bestParameters = None
     for i in range(100):
-        parameters=randomAdmissibleParameterGenerator()
-        Possibilities.lambda1=parameters[0]
-        Possibilities.lambda2=parameters[1]
-        Possibilities.lambda3=parameters[2]
-        Possibilities.epsilon=parameters[3]
-        precision=tester(goodSentencesTst,badSentencesTst)
-        if  precision> bestPrecision:
-            bestParameters=parameters
-            bestPrecision=precision
+        parameters = randomAdmissibleParameterGenerator()
+        Possibilities.lambda1 = parameters[0]
+        Possibilities.lambda2 = parameters[1]
+        Possibilities.lambda3 = parameters[2]
+        Possibilities.epsilon = parameters[3]
+        precision = tester(goodSentencesTst, badSentencesTst)
+        if precision > bestPrecision:
+            bestParameters = parameters
+            bestPrecision = precision
 
-    print("Best Precision   =>",bestPrecision)
-    print("\u03BB1 =",bestParameters[0]," , ",
-          "\u03BB2 =", bestParameters[1]," , ",
-          "\u03BB3 =", bestParameters[2]," , ",
+    print("Best Precision   =>", bestPrecision)
+    print("\u03BB1 =", bestParameters[0], " , ",
+          "\u03BB2 =", bestParameters[1], " , ",
+          "\u03BB3 =", bestParameters[2], " , ",
           "\u03F5 =", bestParameters[3])
-
-
 
 
 def randomAdmissibleParameterGenerator():
@@ -101,8 +100,7 @@ def main():
     tester(goodSentencesTst, badSentencesTst)
 
     # uncomment line below  to find best parameters value
-    # bestParamatersSearcher(goodSentencesTst, badSentencesTst)
-
+    # bestParametersSearcher(goodSentencesTst, badSentencesTst)
 
     while True:
         comment = input()
@@ -114,11 +112,10 @@ def main():
         print(PGood, " ", PBad)
 
         if PGood > PBad:
-            print("Good")
+            print("Good so NOT FILTER THIS")
         else:
-            print("Bad")
+            print("Bad so FILTER THIS")
 
 
 if __name__ == "__main__":
     main()
-
