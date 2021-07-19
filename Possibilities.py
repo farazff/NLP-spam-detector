@@ -3,6 +3,7 @@ lambda2 = 0.15
 lambda3 = 0.75
 epsilon = 0.1
 
+
 def P_unigram(word, M, dictData):
     if word in dictData:
         return dictData[word] / M
@@ -38,4 +39,12 @@ def P_WL(comment, dictData, dictData2D, M):
     possibility = P_unigram(words[0], M, dictData)
     for i in range(1, len(words)):
         possibility *= P_bigramNormal(words[i], words[i - 1], dictData2D, dictData, M)
+    return possibility
+
+
+def P_WL_Uni(comment, dictData, M):
+    words = comment.split(" ")
+    possibility = P_unigram(words[0], M, dictData)
+    for i in range(0, len(words)):
+        possibility *= P_unigram(words[i], M, dictData)
     return possibility

@@ -1,5 +1,6 @@
 from Learn import countEveryWord, countPairs
 from Possibilities import P_WL
+from Possibilities import P_WL_Uni
 import Possibilities
 from Preprocessor import DatasetsPreprocessor
 import random
@@ -108,6 +109,9 @@ def main():
             break
         PGood = P_WL(comment, goodCount, goodPairs, goodM)
         PBad = P_WL(comment, badCount, badPairs, badM)
+
+        # PGood = P_WL_Uni(comment, goodCount, goodM)
+        # PBad = P_WL_Uni(comment, badCount, badM)
 
         print(PGood, " ", PBad)
 
