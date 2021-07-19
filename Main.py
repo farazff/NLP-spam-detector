@@ -111,7 +111,7 @@ def main():
 
         print(PGood, " ", PBad)
 
-        if PGood > PBad:
+        if PGood >= PBad:
             print("Good so NOT FILTER THIS")
         else:
             print("Bad so FILTER THIS")
